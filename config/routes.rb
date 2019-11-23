@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :categories
   devise_for :users
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 get "bienvenida", to: "home#index" # la "/" es optativa, es una pagina de destino por ende no es necesario incluirla en REST, no es un recurso que estamos modificando
