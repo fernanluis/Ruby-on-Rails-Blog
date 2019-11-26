@@ -9,6 +9,7 @@ class ArticlesController < ApplicationController
   end
 
   def edit
+    @categories = Category.all
   end
 
   def update
@@ -20,6 +21,7 @@ class ArticlesController < ApplicationController
 
   def new
     @article = Article.new #lo que este metodo hace es crear un articulo vacio
+    @categories = Category.all
   end
 
   def create
@@ -43,7 +45,7 @@ class ArticlesController < ApplicationController
   end
 
   def article_params
-    params.require(:article).permit(:title, :content, :category_elements)
+    params.require(:article).permit(:title, :content, category_elements: [])
   end
 
 end

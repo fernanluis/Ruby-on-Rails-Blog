@@ -1,12 +1,23 @@
 <div class="large-container center-block">
   <h1><%=@article.title%></h1>
   <div>
-    <p> Escrito por: <strong> <%= @article.user.email %> </strong> </p>  
+    <p> Escrito por: <strong> <%= @article.user.email %> </strong> </p>
+    <%= if current_user.avatar.attached?%>
+      <%= image_tag url_for(current_user.avatar), height:30 %>
+    <%end%>
   </div>
 
   <div>
     <%= @article.content %>
+  </div>
 
+  <div class="margin-top">
+    <p class="label">Tags</p>
+    <% @article.categories.each do |category| %>
+      <span class="badge badge-pill padding" style="background-color:<%= category.color %>">
+        <%= link_to category.title, category, class:"text=white"%>
+      </span>
+    <%end%>
   </div>
 
   <div>

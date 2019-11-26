@@ -6,8 +6,14 @@
 </div>
 
 <div class="field">
-  <%=form.label :category_elements %>
-  <%=form.text_field :category_elements %>
+    <%=form.label :category_elements %>
+    <div class="row">
+      <% @categories.each do |category| %>
+        <label class="col-6 col-sm-5">
+          <%= form.check_box :category_elements, {multiple: true}, category.id, nil %>
+          <%= category.title %>
+        </label>
+    <% end %>
 </div>
 
 <div class="field">
