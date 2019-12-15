@@ -1,5 +1,5 @@
 <div class="small-container center-block">
-<h2> Log in </h2>
+<h2> Sign in </h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
@@ -20,9 +20,13 @@
   <% end %>
 
   <div class="actions">
-    <%= f.submit "Get in", class:"btn btn-primary" %>
+    <%= f.submit "Sign in", class:"btn btn-primary" %>
   </div>
 <% end %>
 
-<%= render "devise/shared/links" %>
+<%= render "devise/shared/links" %> </br>
+
+<div class="btn btn-lg btn-google btn-block text-uppercase" type="submit"><i class="fab fa-google mr-2"></i> Sign in with Google</div> </br>
+<div class="btn btn-lg btn-facebook btn-block text-uppercase" type="submit"><i class="fab fa-facebook-f mr-2"></i> Sign in with Facebook</div> </br>
+
 </div>

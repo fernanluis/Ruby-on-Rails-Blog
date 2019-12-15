@@ -6,7 +6,11 @@ body {
 .small-container{
   width:100%;
   max-width:650px;
+  border: 0;
+  border-radius: 1.0rem;
+  box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
 }
+
 .large-container{
   width:100%;
   max-width:960px;
@@ -14,6 +18,7 @@ body {
 .center-block{
   margin:0 auto;
 }
+
 .padding{
   padding: 10px 15px;
 }
@@ -40,4 +45,13 @@ input[type='checkbox']{
   vertical-align: middle;
   margin-right: 0.5em;
   }
+}
+.btn-google {
+  color: white;
+  background-color: #ea4335;
+}
+
+.btn-facebook {
+  color: white;
+  background-color: #3b5998;
 }
