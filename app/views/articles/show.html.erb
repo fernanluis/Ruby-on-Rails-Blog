@@ -1,11 +1,11 @@
 <div class="large-container center-block">
   <h1><%=@article.title%></h1>
-  <div>
-    <p> Escrito por: <strong> <%= @article.user.email %> </strong> </p>
-    <%= if current_user.avatar.attached?%>
-      <%= image_tag url_for(current_user.avatar), height:30 %>
-    <%end%>
-  </div>
+    <div>
+      <p> Writte by: <strong> <%= @article.user.email %> </strong> </p>
+        <% if current_user.avatar.attached? %>
+          <%= image_tag url_for(current_user.avatar), height:30 %>
+        <%end%>
+    </div>
 
   <div>
     <%= @article.content %>
@@ -13,15 +13,25 @@
 
   <div class="margin-top">
     <p class="label">Tags</p>
-    <% @article.categories.each do |category| %>
-      <span class="badge badge-pill padding" style="background-color:<%= category.color %>">
-        <%= link_to category.title, category, class:"text=white"%>
-      </span>
-    <%end%>
-  </div>
+      <% @article.categories.each do |category| %>
+        <span class="badge badge-pill padding" style="background-color:<%= category.color %>">
+          <%= link_to category.title, category, class:"text=white"%>
+        </span>
+      <%end%>
+  </div></br>
 
-  <div>
-    <%=link_to "Eliminar el articulo", @article, method: :delete %>
+  <p>
+    <%=link_to "Delete article", @article, method: :delete %> </br>
+    <%= link_to "Edit article" , edit_article_path(@article) %> </br>
+  </p>
 
-  </div>
+  <h4>Add a comment:</h4>
+  <%= render 'comments/form' %>
+
+  <h4>Comments</h4>
+  <%= render @article.comments %>
+
+  <%= link_to "Back", articles_path %> </br>
+  <%= link_to "Inicio", root_path %> </br>
+
 </div>

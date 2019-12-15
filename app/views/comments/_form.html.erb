@@ -1,0 +1,23 @@
+<%= form_with(model: @comment, local: true) do |form| %>
+
+  <div class="field">
+    <%=form.label :commenter %>
+    <%=form.text_field :commenter %>
+  </div>
+
+  <div class="field">
+    <%=form.label :body %>
+    <%=form.text_area :body %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div></br>
+
+  <p>
+    <%= link_to "Delete comment", @comment,
+                method: :delete,
+                data: {confirm: "Are you sure?"} %>
+  </p>
+
+<%end%>

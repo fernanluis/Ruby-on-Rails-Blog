@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   root to: "home#index"
 
   # get "articles/user/:user_id", to: "articles#from_author" #ruta que tiene que ver con los articulo pero con filtro de los usuarios
+  resources :comments
   resources :categories
   resources :articles do #esta misma linea acepta un bloque para agregar rutas adicionales
     get "user/:user_id", to: "articles#from_author", on: :collection

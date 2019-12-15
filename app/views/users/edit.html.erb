@@ -1,14 +1,14 @@
 <div class="small-container center-block">
-  <p class="font-weight-bold text-uppercase margin-top">Editar usuario</p>
-  <%= image_tag url_for(current_user.avatar), height:200 %>  
+  <p class="font-weight-bold text-uppercase margin-top">Edit user</p>
+  <%= image_tag url_for(current_user.avatar), height:200 %>
   <%= form_with(model: current_user, local: true) do |form| %>
     <div class="field">
-      <%= form.label :"avatar" %>
-      <%= form.file_field :"avatar" %>
+      <%= form.label :avatar %>
+      <%= form.file_field :avatar %>
     </div>
 
     <div class="field">
-      <%= form.submit "Guardar", class:"btn btn=primary" %>
+      <%= form.submit "Save", class:"btn btn-primary" %>
     </div>
   <% end %>
 </div>
