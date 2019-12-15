@@ -25,9 +25,5 @@
   <div>
     <%= form.submit %>
   </div>
-
-  <%= link_to "Delete article", @article,
-              method: :delete,
-              data: {confirm: "Are you sure?"} %>
-
+  <%= link_to "Back", articles_path %> </br>
 <%end%>

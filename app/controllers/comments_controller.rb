@@ -1,40 +1,19 @@
 class CommentsController < ApplicationController
-  before_action :find_comment, except: [:new, :create, :index]
-  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
-
-  def index
-    @comment = Comment.all
-  end
-
-  def edit
-    @comment = Comment.new
-  end
-
-  def update
-    @comment.update(article_params)
-    @comment.save
-
-    redirect_to @comment
-  end
-
-  def new
-    @comment = Comment.new
-  end
+  before_action :authenticate_user!, only: :destroy
 
   def create
-    @comment = Comment.find(params[:article_id])
+    @article = Article.find(params[:article_id])
     @comment = @article.comments.create(comments_params)
 
-    redirect_to @comment
+    redirect_to @article
   end
 
   def destroy
+    @article = Article.find(params[:article_id])
+    @comment = article.comments.find(params[:id])
     @comment.destroy
-    redirect_to root_path
-  end
 
-  def find_comment
-    @comment = Comment.find(params[:id])
+    redirect_to @rticles
   end
 
   def comments_params

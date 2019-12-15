@@ -21,8 +21,10 @@
   </div></br>
 
   <p>
-    <%=link_to "Delete article", @article, method: :delete %> </br>
     <%= link_to "Edit article" , edit_article_path(@article) %> </br>
+    <%= link_to "Delete article", @article,
+                method: :delete,
+                data: {confirm: "Are you sure?"} %> </br>
   </p>
 
   <h4>Add a comment:</h4>

@@ -9,10 +9,11 @@ Rails.application.routes.draw do
   root to: "home#index"
 
   # get "articles/user/:user_id", to: "articles#from_author" #ruta que tiene que ver con los articulo pero con filtro de los usuarios
-  resources :comments
+
   resources :categories
   resources :articles do #esta misma linea acepta un bloque para agregar rutas adicionales
     get "user/:user_id", to: "articles#from_author", on: :collection
+  resources :comments  
   end #rutas adicionales que no vienen en los resources como la que involucra a user
   #el on: :collection lo que hace es que la ruta se va a generar para una coleccion, una alternativa es on: :member
   #get "articles", to: "articles#index" #cuando quiero mostrar articulos con accion index

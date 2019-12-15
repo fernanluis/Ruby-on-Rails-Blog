@@ -5,6 +5,8 @@ class Article < ApplicationRecord
   has_many :categories, through: :has_categories
   attr_accessor :category_elements
   has_many :comments, dependent: :destroy
+  validates :title, presence: true,
+                      length: {minimum: 5}
 
   def save_categories
     #category_elements 1,2,3
